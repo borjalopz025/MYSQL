@@ -125,7 +125,7 @@ async function main()
 
     // let sql = "SELECT nombre, apellido , title FROM teacher AS s INNER JOIN subject AS m ON (s.id_teacher = m.id_subject)"
 
-    // let sql = "SELECT id_students FROM students AS s INNER JOIN gru AS m ON (s.id_students =  m.id_gru) INNER JOIN gru AS m on (s.id_students =  m.id_gru) INNER JOIN subject_teacher AS n ON (m.id_gru = n.gru_id) INNER JOIN subject AS b ON (n.subject_id = b.id_subjects) INNER JOIN teacher AS v ON (n.teacher_id = v.id_teacher);"
+    // let sql = "SELECT  s.id_students ,b.title,v.nombre ,v.apellido FROM students AS s INNER JOIN gru AS m ON (s.id_students =  m.id_gru) INNER JOIN gru AS m on (s.id_students =  m.id_gru) INNER JOIN subject_teacher AS n ON (m.id_gru = n.gru_id) INNER JOIN subject AS b ON (n.subject_id = b.id_subjects) INNER JOIN teacher AS v ON (n.teacher_id = v.id_teacher);"
 
                                                                                                                                                                   
 
