@@ -56,8 +56,7 @@ async function main()
     //TABLA GRU
     // let sql = "CREATE TABLE gru (id INT AUTO_INCREMENT PRIMARY KEY "+
     //                               "name VARCHAR(45))"
-    // let sql= "INSERT INTO gru ( id_gru , fecha) "+ "VALUES (8, SegundoUniversidad),"+ "VALUES (9, TerceroUniversidad),"+ "VALUES (10, CuartoUniversidad),"
-
+    // let sql= "INSERT INTO gru ( id_gru , fecha) "+ "VALUES (8, \"SegundoUniversidad\"),"
     // TABLA STUDENTS
     // let sql ="CREATE TABLE students (id INT AUTO_INCREMENT PRIMARY KEY "+
     //                                "first-name VARCHAR(45)"+
@@ -65,7 +64,7 @@ async function main()
     //                                "id INT AUTO_INCREMENT PRIMARY KEY) "
 
 
-    // let sql = "INSERT INTO students ( id_students ,firts_name, last_name, gru_id) "+ "VALUES (6, ana , alvarez, 2)," +   "VALUES (7,carolina, llanos, 2),"+ "VALUES (8, perdo, garcia,1),"+" VALUES (9,marina ,peral,1)"
+    // let sql = "INSERT INTO students ( id_students ,firts_name, last_name, gru_id) "+ "VALUES (6, \"ana\" , \"alvarez\", 2),";
 
     // let sql = "SELECT firts_name , last_name FROM students"
     // let [result] = await connection.query(sql);
@@ -76,7 +75,7 @@ async function main()
     // let sql = "CREATE TABLE subject (id INT AUTO_INCREMENT PRIMARY KEY "+
     //                                   "title VARCHAR(45))"
 
-    // let sql = "INSERT INTO subject (  id_subject, title) "+ "VALUES (6, ética)," +   "VALUES (7,biologia),"+ "VALUES (8, sociales),"+" VALUES (9,inglés)"+"VALUES (10,tecnologia)"
+    // let sql = "INSERT INTO subject (  id_subject, title) "+ "VALUES (6, \"ética\),";
     
     //TABLA SUBJECT_TEACHER
     // let sql = "CREATE TABLE subject_teacher (id INT AUTO_INCREMENT PRIMARY KEY "+
@@ -89,8 +88,7 @@ async function main()
     //                                   "firts_name VARCHAR(45))"+
     //                                   "last_name VARCHAR(45))"
 
-    // let sql = "INSERT INTO teacher (  id_teacher, firts_name,last_name) "+ "VALUES (6, javier,rodriguez)," +   "VALUES (7,ana,baute),"+ "VALUES (8, pedro, jimenez),"+" VALUES (9,silvia, barroso)"+"VALUES (10,geronimo,bernal)"
-
+    // let sql = "INSERT INTO teacher (  id_teacher, firts_name,last_name) "+ "VALUES (6, \"javier,rodriguez\"),";
 
     //let sql = "SELECT * FROM teacher";
     // let [result] = await connection.query(sql);
@@ -99,6 +97,45 @@ async function main()
 
   // let [result] =await connection.query(sql)
   // console.log(result);
+
+
+    // RETO 2
+
+
+     // let sql = "SELECT AVG(mark) FROM mark"
+
+    // let sql = "SELECT COUNT (*) students"
+    
+    // let sql = "SELECT mark FROM mark WHERE mark > 5 AND fecha >= 2019-01-01"
+
+    // let sql = "SELECT * FROM students WHERE ingreso = 2023"
+
+    // let sql = "SELECT subject_teacher_id, COUNT (*) AS numero_profesores FROM subject_teacher GROUP BY subject_teacher_id"
+
+    // let sql = "SELECT student_id, mark FROM mark WHERE (student_id BETWEEN 1 AND 20) OR (mark > 8 AND YEAR(fecha) = YEAR(CURDATE())-1);"
+
+    // let sql = "SELECT student_id, AVG(mark) AS nota_media FROM mark WHERE YEAR(fecha) = YEAR(CURDATE()) - 1 GROUP BY student_id;"
+
+
+
+    //RETO 3 
+
+    
+    // let sql = "SELECT firts_name , last_name ,title FROM students AS s INNER JOIN subject AS m ON (s.id_students = m.id_subject)"
+
+    // let sql = "SELECT nombre, apellido , title FROM teacher AS s INNER JOIN subject AS m ON (s.id_teacher = m.id_subject)"
+
+    // let sql = "SELECT id_students FROM students AS s INNER JOIN gru AS m ON (s.id_students =  m.id_gru) UNION ALL SELECT id_gru FROM gru  AS s INNER JOIN subject_teacher AS m on (s.id_gru =  m.gru_id) UNION ALL SELECT title FROM subject_teacher  AS s INNER JOIN subject AS m on (s.subject_id =  m.id_subjects)  UNION ALL SELECT CONCAT(nombre," ",apellido) FROM subject_teacher  AS s INNER JOIN teacher AS m on (s.teacher_id =  m.id_teacher)"
+
+                                                                                                                                                                  
+
+ 
+
+
+
+
+
+
 
  await connection.end()
 }
