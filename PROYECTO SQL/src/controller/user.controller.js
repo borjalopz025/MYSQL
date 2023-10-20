@@ -6,8 +6,8 @@ const postRegister = async (req, res) =>
     try 
     {
         console.log(req.body);
-        let sql = "INSERT INTO user (user_id, name , last_name , email, photo, password)"+
-                                        "values ('"+ req.body.user_id+ "','"+
+        let sql = "INSERT INTO user ( name , last_name , email, photo, password)"+
+                                        "values ('"+ 
                                                      req.body.name + "','"+
                                                      req.body.last_name +"','"+
                                                      req.body.email +" ',' "+
@@ -18,8 +18,10 @@ const postRegister = async (req, res) =>
         let [result] = await pool.query(sql)
         console.log(result);
 
-        if(result.insertId)
+        if(result.insertId){
             res.send(String(result.insertId))
+          
+        }
         else
             res.send("-1")
     }
@@ -31,13 +33,15 @@ const postRegister = async (req, res) =>
 
 const postLogin = async (req, res)=>
 {
+    console.log(req.body)
     try
     {
+       
         let parametros = [req.body.email, req.body.password]
         sql = "SELECT user_id, name,last_name, email, photo FROM user WHERE email = ? AND password = ?"
     
-        
-        console.log(sql);
+        ;
+       
         let [result] = await pool.query(sql,parametros)
         console.log(result); 
         if(result.length == 0)

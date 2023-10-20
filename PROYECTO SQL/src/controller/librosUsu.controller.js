@@ -38,10 +38,10 @@ const getLibrosId = async (req,res) =>
 
        
         
-        sql = "SELECT * FROM book WHERE id_book = " +req.query.id + " AND id_user = ?" +req.query.id_user
+        sql = "SELECT * FROM book WHERE id_book = " +req.query.id + " AND id_user = " +req.query.id_user
            
         console.log(sql);
-        let [result] = await pool.query(sql,parametros)
+        let [result] = await pool.query(sql)
         console.log(result); 
         if(result.length == 0)
         res.send({error:true , codigo: 404, mensaje:"libro no encontrados "})
